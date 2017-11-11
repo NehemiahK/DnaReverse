@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DNA REVERSE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href='https://fonts.googleapis.com/css?family=Shadows Into Light' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $("#rabbit").on("click", function(){
+
+        console.log("button works");
+
+            var x = $("#dna").val();
+
+        $("#dna").val("");
+
+        var z = dna(x);
+
+        $("#display").html(z);
+
+
+    });
+});
+function dna (str){
+
+  str = str.toLowerCase();
+
+  var newStr ="";
+
+  for (var i=0; i< str.length; i++){
+
+    if (str.charAt(i) == 'a' ){
+
+    newStr += 'T';
+  }
+    else if (str.charAt(i) == 't' ){
+
+      newStr += 'A';
+
+    }
+    else if (str.charAt(i) == 'c'){
+      newStr += 'G';
+    }
+    else if (str.charAt(i) == 'g'){
+
+      newStr += 'C';
+    }
+
+  }
+
+  newStr = newStr.split('').reverse().join('');
+
+  return newStr;
+}
+
+</script>
+
+<style>
+
+#dna{
+    margin-top: 20px;
+}
+html,body {
+ font-family: 'Shadows Into Light';
+ font-size: 29px;
+ color: black;
+ background-color: #9d41f4;
+ text-align: center;
+ font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <div>
+    <input type="text" id="dna">DNA Strand</input>
+</div>
+<div>
+    <button class="btn btn-primary btn-lg"id="rabbit">Get Match</button>
+    <div>
+    </br>
+    <div id="display">
+    </div>
+</body>
+</html>
